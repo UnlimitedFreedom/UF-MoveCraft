@@ -20,10 +20,8 @@ package net.countercraft.movecraft;
 import net.countercraft.movecraft.async.AsyncManager;
 import at.pavlov.cannons.Cannons;
 import com.earth2me.essentials.Essentials;
-
 import com.sk89q.worldedit.bukkit.WorldEditPlugin;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
-
 import net.countercraft.movecraft.config.Settings;
 import net.countercraft.movecraft.craft.CraftManager;
 import net.countercraft.movecraft.items.StorageChestItem;
@@ -42,12 +40,10 @@ import net.milkbowl.vault.economy.Economy;
 import com.mewin.WGCustomFlags.WGCustomFlagsPlugin;
 import com.palmergames.bukkit.towny.Towny;
 import com.sk89q.worldguard.protection.flags.StateFlag;
-
 import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
-
 import java.io.File;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -66,6 +62,7 @@ public class Movecraft extends JavaPlugin {
         public static StateFlag FLAG_MOVE = null; //new StateFlag("movecraft-move", true);
         public static StateFlag FLAG_ROTATE = null; //new StateFlag("movecraft-rotate", true);
         public static StateFlag FLAG_SINK = null; //new StateFlag("movecraft-sink", true);        
+        @SuppressWarnings("NonConstantLogger")
 	private Logger logger;
 	private boolean shuttingDown;
 	public HashMap<MovecraftLocation, Long> blockFadeTimeMap = new HashMap<MovecraftLocation, Long>();
@@ -82,6 +79,7 @@ public class Movecraft extends JavaPlugin {
 	}
 
         @Override
+        @SuppressWarnings("ResultOfObjectAllocationIgnored")
 	public void onEnable() {
 		// Read in config            
 		this.saveDefaultConfig();
@@ -91,8 +89,7 @@ public class Movecraft extends JavaPlugin {
 		Settings.DisableSpillProtection = getConfig().getBoolean("DisableSpillProtection", false);
 		// if the PilotTool is specified in the config.yml file, use it
 		if (getConfig().getInt("PilotTool") != 0) {
-			logger.log(Level.INFO, "Recognized PilotTool setting of: "
-					+ getConfig().getInt("PilotTool"));
+			logger.log(Level.INFO, "Recognized PilotTool setting of: {0}", getConfig().getInt("PilotTool"));
 			Settings.PilotTool = getConfig().getInt("PilotTool");
 		} else {
 			logger.log(Level.INFO, "No PilotTool setting, using default of 280");
@@ -275,7 +272,7 @@ public class Movecraft extends JavaPlugin {
 				StorageChestItem.addRecipie();
 			}
 
-		 	new MovecraftMetrics(CraftManager.getInstance().getCraftTypes().length );
+		 	new MovecraftMetrics(CraftManager.getInstance().getCraftTypes().length);
 			
 
 			logger.log(Level.INFO, String.format(I18nSupport

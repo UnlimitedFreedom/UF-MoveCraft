@@ -17,8 +17,6 @@
 
 package net.countercraft.movecraft.listener;
 
-import java.util.HashMap;
-
 import net.countercraft.movecraft.config.Settings;
 import net.countercraft.movecraft.craft.Craft;
 import net.countercraft.movecraft.craft.CraftManager;
@@ -27,7 +25,6 @@ import net.countercraft.movecraft.localisation.I18nSupport;
 import net.countercraft.movecraft.utils.MathUtils;
 import net.countercraft.movecraft.utils.MovecraftLocation;
 import net.countercraft.movecraft.utils.Rotation;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -35,11 +32,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
-//public class CommandListener implements Listener {
 public class CommandListener implements CommandExecutor {
 
 	private CraftType getCraftTypeFromString( String s ) {
@@ -286,7 +279,8 @@ public class CommandListener implements CommandExecutor {
 			if(CraftManager.getInstance().getCraftsInWorld(player.getWorld())!=null)
 				for(Craft craft : CraftManager.getInstance().getCraftsInWorld(player.getWorld())) {
 					if(craft!=null) {
-						String output=new String();
+                                                @SuppressWarnings("UnusedAssignment")
+						String output = new String();
 						if(craft.getNotificationPlayer()!=null) {
 							output=craft.getType().getCraftName()+" "+craft.getNotificationPlayer().getName()+" "+craft.getBlockList().length+" @ "+craft.getMinX()+","+craft.getMinY()+","+craft.getMinZ();
 						} else {
@@ -326,7 +320,8 @@ public class CommandListener implements CommandExecutor {
 					long distsquared=Math.abs(diffx)*Math.abs(diffx);
 					distsquared+=Math.abs(diffy)*Math.abs(diffy);
 					distsquared+=Math.abs(diffz)*Math.abs(diffz);
-					long detectionRange=0;
+                                        @SuppressWarnings("UnusedAssignment")
+					long detectionRange = 0;
 					if(tposy>65) {
 						detectionRange=(long) (Math.sqrt(tcraft.getOrigBlockCount())*tcraft.getType().getDetectionMultiplier());
 					} else {

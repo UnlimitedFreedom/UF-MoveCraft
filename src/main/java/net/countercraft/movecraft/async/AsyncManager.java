@@ -32,30 +32,20 @@ import net.countercraft.movecraft.utils.MapUpdateCommand;
 import net.countercraft.movecraft.utils.MapUpdateManager;
 import net.countercraft.movecraft.utils.MathUtils;
 import net.countercraft.movecraft.utils.MovecraftLocation;
-
 import org.apache.commons.collections.ListUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.World;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-import org.bukkit.projectiles.ProjectileSource;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
-import org.mozilla.javascript.JavaScriptException;
-
 import at.pavlov.cannons.cannon.Cannon;
-
 import com.palmergames.bukkit.towny.object.TownBlock;
 import com.palmergames.bukkit.towny.object.TownyWorld;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
 import com.sk89q.worldguard.protection.flags.DefaultFlag;
-import com.sk89q.worldguard.protection.flags.StateFlag;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -67,7 +57,6 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.logging.Level;
-
 import net.countercraft.movecraft.utils.ItemDropUpdateCommand;
 import net.countercraft.movecraft.utils.TownyUtils;
 import net.countercraft.movecraft.utils.WGCustomFlagsUtils;
@@ -77,7 +66,7 @@ public class AsyncManager extends BukkitRunnable {
 	private final HashMap<AsyncTask, Craft> ownershipMap = new HashMap<AsyncTask, Craft>();
 	private final HashMap<org.bukkit.entity.TNTPrimed, Double> TNTTracking = new HashMap<org.bukkit.entity.TNTPrimed, Double>();
 	private final HashMap<Craft, HashMap<Craft, Long>> recentContactTracking = new HashMap<Craft, HashMap<Craft, Long>>();
-	private HashMap<org.bukkit.entity.SmallFireball, Long> FireballTracking = new HashMap <org.bukkit.entity.SmallFireball, Long>();
+	private final HashMap<org.bukkit.entity.SmallFireball, Long> FireballTracking = new HashMap <org.bukkit.entity.SmallFireball, Long>();
 	private final BlockingQueue<AsyncTask> finishedAlgorithms = new LinkedBlockingQueue<AsyncTask>();
 	private final HashSet<Craft> clearanceSet = new HashSet<Craft>();
 	private long lastTracerUpdate = 0;
@@ -134,7 +123,7 @@ public class AsyncManager extends BukkitRunnable {
 						if(notifyP!=null)
 							notifyP.sendMessage( data.getFailMessage() );
 						else
-							Movecraft.getInstance().getLogger().log( Level.INFO,"NULL Player Craft Detection failed:"+data.getFailMessage());
+							Movecraft.getInstance().getLogger().log(Level.INFO, "NULL Player Craft Detection failed:{0}", data.getFailMessage());
 
 					} else {
 						Craft[] craftsInWorld = CraftManager.getInstance().getCraftsInWorld( c.getW() );
@@ -311,7 +300,7 @@ public class AsyncManager extends BukkitRunnable {
 						if(notifyP!=null)
 							notifyP.sendMessage( task.getFailMessage() );
 						else
-							Movecraft.getInstance().getLogger().log( Level.INFO,"NULL Player Rotation Failed: "+task.getFailMessage());
+							Movecraft.getInstance().getLogger().log(Level.INFO, "NULL Player Rotation Failed: {0}", task.getFailMessage());
 					} else {
 						MapUpdateCommand[] updates = task.getUpdates();
 						EntityUpdateCommand[] eUpdates=task.getEntityUpdates();
@@ -538,6 +527,7 @@ public class AsyncManager extends BukkitRunnable {
 	public void processSinking() {
                 for( World w : Bukkit.getWorlds()) {
 			if(w!=null && CraftManager.getInstance().getCraftsInWorld(w)!=null) {
+                                @SuppressWarnings("UnusedAssignment")
                                 TownyWorld townyWorld = null;
                                 boolean townyEnabled = false;
                                 if (Movecraft.getInstance().getTownyPlugin() != null && Settings.TownyBlockSinkOnNoPVP){
@@ -937,7 +927,8 @@ public class AsyncManager extends BukkitRunnable {
 								long distsquared=Math.abs(diffx)*Math.abs(diffx);
 								distsquared+=Math.abs(diffy)*Math.abs(diffy);
 								distsquared+=Math.abs(diffz)*Math.abs(diffz);
-								long detectionRange=0;
+                                                                @SuppressWarnings("UnusedAssignment")
+								long detectionRange = 0;
 								if(tposy>65) {
 									detectionRange=(long) (Math.sqrt(tcraft.getOrigBlockCount())*tcraft.getType().getDetectionMultiplier());
 								} else {
@@ -999,6 +990,7 @@ public class AsyncManager extends BukkitRunnable {
 		}
 	}
 
+        @Override
 	public void run() {
 		clearAll();
 		processCruise();

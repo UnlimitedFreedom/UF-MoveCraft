@@ -20,9 +20,7 @@ package net.countercraft.movecraft.craft;
 import net.countercraft.movecraft.Movecraft;
 import net.countercraft.movecraft.config.Settings;
 import net.countercraft.movecraft.localisation.I18nSupport;
-
 import org.yaml.snakeyaml.Yaml;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -32,9 +30,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
-
 import org.bukkit.Material;
-
 import java.util.logging.Level;
 
 public class CraftType {
@@ -71,7 +67,6 @@ public class CraftType {
 			parseCraftDataFromFile( f );
 		} catch ( Exception e ) {
 			Movecraft.getInstance().getLogger().log( Level.SEVERE, String.format( I18nSupport.getInternationalisedString( "Startup - Error parsing CraftType file" ) , f.getAbsolutePath() ) );
-			e.printStackTrace();
 		}
 	}
 	
@@ -112,6 +107,7 @@ public class CraftType {
 		return returnList.toArray(new Integer[1]);
 	}
 
+        @SuppressWarnings("SuspiciousIndentAfterControlStatement")
 	private HashMap<ArrayList<Integer>, ArrayList<Double>> blockIDMapListFromObject(Object obj) {
 		//flyBlocks = ( HashMap<Integer, ArrayList<Double>> ) data.get( "flyblocks" );
 		

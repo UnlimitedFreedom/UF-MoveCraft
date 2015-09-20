@@ -18,9 +18,7 @@
 package net.countercraft.movecraft.async.translation;
 
 import com.palmergames.bukkit.towny.object.Town;
-import com.sk89q.worldguard.protection.flags.StateFlag;
 import net.countercraft.movecraft.Movecraft;
-import net.countercraft.movecraft.async.AsyncManager;
 import net.countercraft.movecraft.async.AsyncTask;
 import net.countercraft.movecraft.config.Settings;
 import net.countercraft.movecraft.craft.Craft;
@@ -31,23 +29,15 @@ import net.countercraft.movecraft.utils.EntityUpdateCommand;
 import net.countercraft.movecraft.utils.MapUpdateCommand;
 import net.countercraft.movecraft.utils.MathUtils;
 import net.countercraft.movecraft.utils.MovecraftLocation;
-
 import org.apache.commons.collections.ListUtils;
-import org.apache.commons.lang.ArrayUtils;
-import org.bukkit.Chunk;
-import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.Vector;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -55,7 +45,6 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Set;
-import java.util.logging.Level;
 import net.countercraft.movecraft.utils.ItemDropUpdateCommand;
 import net.countercraft.movecraft.utils.TownyUtils;
 import com.palmergames.bukkit.towny.object.TownBlock;
@@ -64,11 +53,11 @@ import com.sk89q.worldguard.LocalPlayer;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
 import net.countercraft.movecraft.utils.TownyWorldHeightLimits;
 import net.countercraft.movecraft.utils.WGCustomFlagsUtils;
-
 import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 
 public class TranslationTask extends AsyncTask {
+        @SuppressWarnings("FieldMayBeFinal")
 	private TranslationTaskData data;
 
 	public TranslationTask( Craft c, TranslationTaskData data ) {
@@ -77,6 +66,7 @@ public class TranslationTask extends AsyncTask {
 	}
 
 	@Override
+        @SuppressWarnings("null")
 	public void excecute() {
             MovecraftLocation[] blocksList = data.getBlockList();
 
@@ -343,6 +333,7 @@ public class TranslationTask extends AsyncTask {
                     break;
                 }
 
+                @SuppressWarnings("UnusedAssignment")
                 boolean blockObstructed = false;
                 boolean harvestBlock = false;
                 boolean bladeOK = true;
@@ -1042,6 +1033,7 @@ public class TranslationTask extends AsyncTask {
         
         HashMap<Material, ArrayList<Block>> crates = new HashMap<Material,ArrayList<Block>>();
         HashSet<ItemDropUpdateCommand> itemDropUpdateSet = new HashSet<ItemDropUpdateCommand>();
+        @SuppressWarnings("SetReplaceableByEnumSet")
         HashSet<Material> droppedSet = new HashSet<Material>();
         HashMap<MovecraftLocation, ItemStack[]> droppedMap = new HashMap<MovecraftLocation, ItemStack[]>();
         harvestedBlocks.addAll(droppedBlocks);
@@ -1207,6 +1199,7 @@ public class TranslationTask extends AsyncTask {
         return stack;
     }
     
+        @SuppressWarnings("SuspiciousIndentAfterControlStatement")
     private void tryPutToDestroyBox(Material mat, MovecraftLocation loc, List<MovecraftLocation> harvestedBlocks, List<MovecraftLocation> droppedBlocks, List<MovecraftLocation> destroyedBlocks ){
         if(
                 mat.equals(Material.DOUBLE_PLANT) 

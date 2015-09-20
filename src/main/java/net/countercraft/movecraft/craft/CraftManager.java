@@ -21,7 +21,6 @@ import net.countercraft.movecraft.Movecraft;
 import net.countercraft.movecraft.localisation.I18nSupport;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
-
 import java.io.File;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -43,6 +42,7 @@ public class CraftManager {
 		return ourInstance;
 	}
 
+        @SuppressWarnings("OverridableMethodCallInConstructor")
 	private CraftManager() {
 		initCraftTypes();
 	}

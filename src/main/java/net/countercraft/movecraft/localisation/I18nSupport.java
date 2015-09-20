@@ -19,7 +19,6 @@ package net.countercraft.movecraft.localisation;
 
 import net.countercraft.movecraft.Movecraft;
 import net.countercraft.movecraft.config.Settings;
-
 import java.io.*;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -40,7 +39,6 @@ public class I18nSupport {
 		try {
 			is = new FileInputStream( localisationDirectory.getAbsolutePath() + "/movecraftlang" + "_" + Settings.LOCALE + ".properties" );
 		} catch ( FileNotFoundException e ) {
-			e.printStackTrace();
 		}
 
 		if ( is == null ) {
@@ -52,8 +50,7 @@ public class I18nSupport {
 		try {
 			languageFile.load( is );
 			is.close();
-		} catch ( IOException e ) {
-			e.printStackTrace();
+		} catch (IOException e) {
 		}
 
 

@@ -76,6 +76,7 @@ public class StorageChestItem {
 		Movecraft.getInstance().getServer().addRecipe( storageCrateRecipie );
 	}
 
+        @SuppressWarnings("ConvertToTryWithResources")
 	public static void saveToDisk() {
 		Map<String, CardboardBox[]> data = new HashMap<String, CardboardBox[]>();
 
@@ -114,12 +115,11 @@ public class StorageChestItem {
 			fileOut.close();
 
 		} catch ( FileNotFoundException e ) {
-			e.printStackTrace();
 		} catch ( IOException e ) {
-			e.printStackTrace();
 		}
 	}
 
+        @SuppressWarnings("ConvertToTryWithResources")
 	public static void readFromDisk() {
 		// Initialise a List for every world
 		for ( World w : Movecraft.getInstance().getServer().getWorlds() ) {
@@ -164,10 +164,7 @@ public class StorageChestItem {
 			input.close();
 
 		} catch ( FileNotFoundException ignored ) {
-		} catch ( ClassNotFoundException e ) {
-			e.printStackTrace();
-		} catch ( IOException e ) {
-			e.printStackTrace();
+		} catch ( ClassNotFoundException | IOException e ) {
 		}
 	}
 }

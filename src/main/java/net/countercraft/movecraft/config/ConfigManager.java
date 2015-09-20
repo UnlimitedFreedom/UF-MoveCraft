@@ -19,7 +19,6 @@ package net.countercraft.movecraft.config;
 
 import net.countercraft.movecraft.Movecraft;
 import org.bukkit.configuration.file.FileConfiguration;
-
 import java.util.ArrayList;
 import java.util.List;
 

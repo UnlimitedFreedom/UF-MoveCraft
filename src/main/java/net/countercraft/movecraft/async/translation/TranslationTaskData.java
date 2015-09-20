@@ -17,14 +17,12 @@
 
 package net.countercraft.movecraft.async.translation;
 
-import org.bukkit.Location;
-import org.bukkit.entity.Entity;
-
 import net.countercraft.movecraft.utils.EntityUpdateCommand;
 import net.countercraft.movecraft.utils.ItemDropUpdateCommand;
 import net.countercraft.movecraft.utils.MapUpdateCommand;
 import net.countercraft.movecraft.utils.MovecraftLocation;
 
+@SuppressWarnings("FieldMayBeFinal")
 public class TranslationTaskData {
 	private int dx;
 	private int dy;

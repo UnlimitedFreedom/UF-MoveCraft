@@ -24,14 +24,13 @@ import net.countercraft.movecraft.async.translation.TranslationTask;
 import net.countercraft.movecraft.async.translation.TranslationTaskData;
 import net.countercraft.movecraft.utils.MovecraftLocation;
 import net.countercraft.movecraft.utils.Rotation;
-
 import org.bukkit.World;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
-
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+@SuppressWarnings("FieldMayBeFinal")
 public class Craft {
 	private int[][][] hitBox;
 	private final CraftType type;
@@ -80,14 +79,16 @@ public class Craft {
 		this.processing.set( processing );
 	}
 
+        @SuppressWarnings("SynchronizeOnNonFinalField")
 	public MovecraftLocation[] getBlockList() {
-		synchronized ( blockList ) {
+		synchronized (blockList) {
 			return blockList.clone();
 		}
 	}
 
+        @SuppressWarnings("SynchronizeOnNonFinalField")
 	public void setBlockList( MovecraftLocation[] blockList ) {
-		synchronized ( this.blockList ) {
+		synchronized (this.blockList) {
 			this.blockList = blockList;
 		}
 	}
@@ -168,7 +169,7 @@ public class Craft {
 	}
 	
 	public void resetSigns( boolean resetCruise, boolean resetAscend, boolean resetDescend) {
-		for ( int i = 0; i < blockList.length; i++ ) {
+		for (int i = 0; i < blockList.length; i++) {
 			int blockID=w.getBlockAt(blockList[i].getX(), blockList[i].getY(), blockList[i].getZ() ).getTypeId();
 			if(blockID==63 || blockID==68) {
 				Sign s=(Sign) w.getBlockAt(blockList[i].getX(), blockList[i].getY(), blockList[i].getZ() ).getState();

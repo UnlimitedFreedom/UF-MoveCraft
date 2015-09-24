@@ -14,17 +14,17 @@
  *     You should have received a copy of the GNU General Public License
  *     along with Movecraft.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package net.countercraft.movecraft.utils.datastructures;
 
 public class TransferData {
-	private final byte data;
 
-	public TransferData( byte data ) {
-		this.data = data;
-	}
+    private final byte data;
 
-	public byte getData() {
-		return data;
-	}
+    public TransferData(byte data) {
+        this.data = data;
+    }
+
+    public byte getData() {
+        return data;
+    }
 }

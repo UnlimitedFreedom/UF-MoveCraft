@@ -14,7 +14,6 @@
  *     You should have received a copy of the GNU General Public License
  *     along with Movecraft.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package net.countercraft.movecraft.async;
 
 import net.countercraft.movecraft.Movecraft;
@@ -24,25 +23,26 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.logging.Level;
 
 public abstract class AsyncTask extends BukkitRunnable {
-	private final Craft craft;
 
-	protected AsyncTask( Craft c ) {
-		craft = c;
-	}
+    private final Craft craft;
 
-        @Override
-	public void run() {
-		try {
-			excecute();
-			AsyncManager.getInstance().submitCompletedTask( this );
-		} catch (Exception e) {
-			Movecraft.getInstance().getLogger().log( Level.SEVERE, String.format( I18nSupport.getInternationalisedString( "Internal - Error - Proccessor thread encountered an error" ) ) );
-		}
-	}
+    protected AsyncTask(Craft c) {
+        craft = c;
+    }
 
-	protected abstract void excecute();
+    @Override
+    public void run() {
+        try {
+            excecute();
+            AsyncManager.getInstance().submitCompletedTask(this);
+        } catch (Exception e) {
+            Movecraft.getInstance().getLogger().log(Level.SEVERE, String.format(I18nSupport.getInternationalisedString("Internal - Error - Proccessor thread encountered an error")));
+        }
+    }
 
-	protected Craft getCraft() {
-		return craft;
-	}
+    protected abstract void excecute();
+
+    protected Craft getCraft() {
+        return craft;
+    }
 }

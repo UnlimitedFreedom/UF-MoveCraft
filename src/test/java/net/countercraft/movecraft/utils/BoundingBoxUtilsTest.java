@@ -14,16 +14,15 @@
  *     You should have received a copy of the GNU General Public License
  *     along with Movecraft.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package net.countercraft.movecraft.utils;
 
 import org.testng.annotations.Test;
 
 public class BoundingBoxUtilsTest {
 
-	@Test
-	public void testFormBoundingBox() throws Exception {
-		assert true;
-	}
+    @Test
+    public void testFormBoundingBox() throws Exception {
+        assert true;
+    }
 
 }

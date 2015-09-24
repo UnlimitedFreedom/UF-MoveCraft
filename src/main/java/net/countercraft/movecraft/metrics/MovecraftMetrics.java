@@ -14,7 +14,6 @@
  *     You should have received a copy of the GNU General Public License
  *     along with Movecraft.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package net.countercraft.movecraft.metrics;
 
 import net.countercraft.movecraft.Movecraft;
@@ -25,43 +24,44 @@ import java.io.IOException;
 import java.util.logging.Level;
 
 public class MovecraftMetrics {
-	private final int classTypes;
 
-	public MovecraftMetrics( int classTypes ) {
-		this.classTypes = classTypes;
-		uploadStatistics();
-	}
+    private final int classTypes;
 
-	private void uploadStatistics() {
-		try {
-			Metrics metrics = new Metrics( Movecraft.getInstance() );
+    public MovecraftMetrics(int classTypes) {
+        this.classTypes = classTypes;
+        uploadStatistics();
+    }
 
-			if ( metrics.isOptOut() ) {
-				Movecraft.getInstance().getLogger().log( Level.INFO, String.format( I18nSupport.getInternationalisedString( "MCStats - :( - Admin has opted out" ) ) );
-			}
+    private void uploadStatistics() {
+        try {
+            Metrics metrics = new Metrics(Movecraft.getInstance());
 
-			Metrics.Graph langaugeGraph = metrics.createGraph( "Language Used" );
-			langaugeGraph.addPlotter( new Metrics.Plotter( Settings.LOCALE ) {
-				@Override
-				public int getValue() {
-					return 1;
-				}
-			} );
+            if (metrics.isOptOut()) {
+                Movecraft.getInstance().getLogger().log(Level.INFO, String.format(I18nSupport.getInternationalisedString("MCStats - :( - Admin has opted out")));
+            }
 
-			Metrics.Graph craftsGraph = metrics.createGraph( "Craft Types 2" );
-			craftsGraph.addPlotter( new Metrics.Plotter( Integer.toString( classTypes ) ) {
+            Metrics.Graph langaugeGraph = metrics.createGraph("Language Used");
+            langaugeGraph.addPlotter(new Metrics.Plotter(Settings.LOCALE) {
+                @Override
+                public int getValue() {
+                    return 1;
+                }
+            });
 
-				@Override
-				public int getValue() {
-					return 1;
-				}
+            Metrics.Graph craftsGraph = metrics.createGraph("Craft Types 2");
+            craftsGraph.addPlotter(new Metrics.Plotter(Integer.toString(classTypes)) {
 
-			} );
-			metrics.start();
-			Movecraft.getInstance().getLogger().log( Level.INFO, String.format( I18nSupport.getInternationalisedString( "MCStats - Thank you message" ) ) );
-		} catch ( IOException e ) {
-			Movecraft.getInstance().getLogger().log( Level.WARNING, String.format( I18nSupport.getInternationalisedString( "MCStats - Error - Unable to upload stats" ) ) );
-		}
-	}
+                @Override
+                public int getValue() {
+                    return 1;
+                }
+
+            });
+            metrics.start();
+            Movecraft.getInstance().getLogger().log(Level.INFO, String.format(I18nSupport.getInternationalisedString("MCStats - Thank you message")));
+        } catch (IOException e) {
+            Movecraft.getInstance().getLogger().log(Level.WARNING, String.format(I18nSupport.getInternationalisedString("MCStats - Error - Unable to upload stats")));
+        }
+    }
 
 }

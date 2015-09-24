@@ -14,24 +14,24 @@
  *     You should have received a copy of the GNU General Public License
  *     along with Movecraft.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package net.countercraft.movecraft.utils.datastructures;
 
 public class CommandBlockTransferHolder extends TransferData {
-	private final String commandText;
-	private final String commandName;
 
-	public CommandBlockTransferHolder( byte data, String commandText, String commandName ) {
-		super( data );
-		this.commandText = commandText;
-		this.commandName = commandName;
-	}
+    private final String commandText;
+    private final String commandName;
 
-	public String getText() {
-		return this.commandText;
-	}
+    public CommandBlockTransferHolder(byte data, String commandText, String commandName) {
+        super(data);
+        this.commandText = commandText;
+        this.commandName = commandName;
+    }
 
-	public String getName() {
-		return this.commandName;
-	}
+    public String getText() {
+        return this.commandText;
+    }
+
+    public String getName() {
+        return this.commandName;
+    }
 }

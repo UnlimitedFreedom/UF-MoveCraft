@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ This file is part of Movecraft.
-  ~
-  ~     Movecraft is free software: you can redistribute it and/or modify
-  ~     it under the terms of the GNU General Public License as published by
-  ~     the Free Software Foundation, either version 3 of the License, or
-  ~     (at your option) any later version.
-  ~
-  ~     Movecraft is distributed in the hope that it will be useful,
-  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~     GNU General Public License for more details.
-  ~
-  ~     You should have received a copy of the GNU General Public License
-  ~     along with Movecraft.  If not, see <http://www.gnu.org/licenses/>.
-  -->
+~ This file is part of Movecraft.
+~
+~     Movecraft is free software: you can redistribute it and/or modify
+~     it under the terms of the GNU General Public License as published by
+~     the Free Software Foundation, either version 3 of the License, or
+~     (at your option) any later version.
+~
+~     Movecraft is distributed in the hope that it will be useful,
+~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+~     GNU General Public License for more details.
+~
+~     You should have received a copy of the GNU General Public License
+~     along with Movecraft.  If not, see <http://www.gnu.org/licenses/>.
+-->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -42,25 +42,25 @@
 
     <repositories>
         <repository>
-        	<id>Plugin Metrics</id>
-        	<url>http://repo.mcstats.org/content/repositories/public</url>
+            <id>Plugin Metrics</id>
+            <url>http://repo.mcstats.org/content/repositories/public</url>
         </repository>
         <repository>
-        	<id>bukkit-repo</id>
-        	<url>http://repo.bukkit.org/content/groups/public/</url>
+            <id>bukkit-repo</id>
+            <url>http://repo.bukkit.org/content/groups/public/</url>
         </repository>
         <repository>
-        	<id>spigot-repo</id>
-        	<url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
         </repository>
         <repository>
-        	<id>sk89q-repo</id>
-		<url>http://maven.sk89q.com/repo/</url>
-		</repository>
-    	<repository>
-        	<id>cannons-repo</id>
-		<url>https://github.com/DerPavlov/mvn-repo/raw/master/</url>
-    	</repository>
+            <id>sk89q-repo</id>
+            <url>http://maven.sk89q.com/repo/</url>
+        </repository>
+        <repository>
+            <id>cannons-repo</id>
+            <url>https://github.com/DerPavlov/mvn-repo/raw/master/</url>
+        </repository>
         <repository>
             <id>vault-repo</id>
             <url>http://nexus.theyeticave.net/content/repositories/pub_releases</url>
@@ -159,24 +159,24 @@
         </dependency>
         
         <dependency>
-        	<groupId>com.sk89q</groupId>
-        	<artifactId>worldguard</artifactId>
-        	<version>LATEST</version>
+            <groupId>com.sk89q</groupId>
+            <artifactId>worldguard</artifactId>
+            <version>LATEST</version>
         </dependency>
         
         <dependency>
-        	<groupId>com.sk89q</groupId>
-        	<artifactId>worldedit</artifactId>
-        	<version>LATEST</version>
+            <groupId>com.sk89q</groupId>
+            <artifactId>worldedit</artifactId>
+            <version>LATEST</version>
         </dependency>
         
         <dependency>
-	        <groupId>at.pavlov</groupId>
-    	    <artifactId>Cannons</artifactId>
-        	<version>LATEST</version>
-    	</dependency>
+            <groupId>at.pavlov</groupId>
+            <artifactId>Cannons</artifactId>
+            <version>LATEST</version>
+        </dependency>
     	
-  <!--   	<dependency>
+        <!--   	<dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
             <version>1.8.3-R0.1-SNAPSHOT</version>
@@ -190,7 +190,7 @@
             <scope>provided</scope>
         </dependency>
 
-		<dependency>
+        <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>craftbukkit</artifactId>
             <version>1.8.8-R0.1-SNAPSHOT</version>

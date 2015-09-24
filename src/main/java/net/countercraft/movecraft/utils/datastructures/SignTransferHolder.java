@@ -14,18 +14,18 @@
  *     You should have received a copy of the GNU General Public License
  *     along with Movecraft.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package net.countercraft.movecraft.utils.datastructures;
 
 public class SignTransferHolder extends TransferData {
-	private final String[] lines;
 
-	public SignTransferHolder( byte data, String[] lines ) {
-		super( data );
-		this.lines = lines;
-	}
+    private final String[] lines;
 
-	public String[] getLines() {
-		return lines;
-	}
+    public SignTransferHolder(byte data, String[] lines) {
+        super(data);
+        this.lines = lines;
+    }
+
+    public String[] getLines() {
+        return lines;
+    }
 }

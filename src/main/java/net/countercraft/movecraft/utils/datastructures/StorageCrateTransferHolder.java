@@ -14,15 +14,14 @@
  *     You should have received a copy of the GNU General Public License
  *     along with Movecraft.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package net.countercraft.movecraft.utils.datastructures;
 
 import org.bukkit.inventory.ItemStack;
 
-public class StorageCrateTransferHolder extends  InventoryTransferHolder {
+public class StorageCrateTransferHolder extends InventoryTransferHolder {
 
-	public StorageCrateTransferHolder( byte data, ItemStack[] invetory ) {
-		super( data, invetory );
-	}
+    public StorageCrateTransferHolder(byte data, ItemStack[] invetory) {
+        super(data, invetory);
+    }
 
 }

@@ -234,9 +234,9 @@ img.align-right, .figure.align-right, object.align-right {
 }
 
 img.align-center, .figure.align-center, object.align-center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .align-left {

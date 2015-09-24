@@ -14,9 +14,9 @@
  *     You should have received a copy of the GNU General Public License
  *     along with Movecraft.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package net.countercraft.movecraft.utils;
 
 public enum Rotation {
-	CLOCKWISE, NONE, ANTICLOCKWISE
+
+    CLOCKWISE, NONE, ANTICLOCKWISE
 }
